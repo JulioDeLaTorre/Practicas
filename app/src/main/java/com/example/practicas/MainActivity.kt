@@ -46,7 +46,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun GreetingPractica() {
-    val context= LocalContext.current
+    //val context= LocalContext.current
     //var texto by remember { mutableStateOf("") }
     //var text by remember { mutableStateOf("") }
     var ValorA by remember { mutableStateOf("") }
@@ -58,13 +58,13 @@ fun GreetingPractica() {
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        Row(){
+/*      Row(){
             Text(text = "Escribe tu nombre:",
                  color = Color.Green,
                  fontFamily = FontFamily.SansSerif)
 
         }
-/*
+
         Row(){
             OutlinedTextField(
                 value=texto,
