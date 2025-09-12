@@ -136,10 +136,10 @@ fun MainScreen(){
 }
 
 fun convertirAPostfija(expresion: String): List<String> {
-    val resultado = mutableListOf<String>()
-    val pila = Stack<Char>()
-    val numero = StringBuilder()
-
+    val resultado = mutableListOf<String>()                         //Adecuacion del metodo de djisktra
+    val pila = Stack<Char>()                                        //para convertir una infija a postfija
+    val numero = StringBuilder()                                    //ej: 2+2         ==         22+
+                                                                    //asegurando que la operacion se realice correctamente
     val precedencia = mapOf('+' to 1, '-' to 1, '*' to 2, '/' to 2)
 
     for (c in expresion) {
@@ -167,8 +167,8 @@ fun convertirAPostfija(expresion: String): List<String> {
 
 fun evaluarPostfija(postfija: List<String>): Double {
     val pila = Stack<Double>()
-    for (token in postfija) {
-        when {
+    for (token in postfija) {                                                   //Metodo que utiliza la expresion postfija convertida con el metodo anterior
+        when {                                                                  //y resuelve la operacion
             token.toDoubleOrNull() != null -> pila.push(token.toDouble())
 
             token in listOf("+", "-", "*", "/") -> {
@@ -189,7 +189,7 @@ fun evaluarPostfija(postfija: List<String>): Double {
 }
 
 fun evaluarExpresion(expresion: String): String {
-    return try {
+    return try {                                                        //Metodo creado unicamente para que en el boton no haya tanto codigo
         val postfija = convertirAPostfija(expresion)
         val resultado = evaluarPostfija(postfija)
         resultado.toString()
