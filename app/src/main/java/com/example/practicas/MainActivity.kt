@@ -25,10 +25,9 @@ import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.unit.dp
 import com.example.practicas.ui.theme.PracticasTheme
-
+import java.util.Stack
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -65,7 +64,9 @@ fun MainScreen(){
             TextField(
                 value = display,
                 onValueChange = { it ->  display = it },
-                modifier = Modifier.fillMaxWidth()
+                modifier = Modifier.fillMaxWidth(),
+                readOnly = true
+
             )
         }
 
@@ -75,7 +76,7 @@ fun MainScreen(){
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.End
         ) {
-            Button(onClick = { /* AC */ }) {
+            Button(onClick = { display =  "" }) {
                 Text("AC")
             }
 
@@ -128,8 +129,71 @@ fun MainScreen(){
         ) {
             Button(onClick = { display += "0" }) { Text("0") }
             Button(onClick = { display += "0" }) { Text(".") }
-            Button(onClick = { /* = */ }) { Text("=")}
+            Button(onClick = { display = evaluarExpresion(display) }) { Text("=")}
             Button(onClick = { display += "/" }) { Text("/") }
         }
+    }
+}
+
+fun convertirAPostfija(expresion: String): List<String> {
+    val resultado = mutableListOf<String>()
+    val pila = Stack<Char>()
+    val numero = StringBuilder()
+
+    val precedencia = mapOf('+' to 1, '-' to 1, '*' to 2, '/' to 2)
+
+    for (c in expresion) {
+        when {
+            c.isDigit() || c == '.' -> {
+                numero.append(c)
+            }
+            c in precedencia.keys -> {
+                if (numero.isNotEmpty()) {
+                    resultado.add(numero.toString())
+                    numero.clear()
+                }
+                while (pila.isNotEmpty() && precedencia[pila.peek()]!! >= precedencia[c]!!) {
+                    resultado.add(pila.pop().toString())
+                }
+                pila.push(c)
+            }
+        }
+    }
+    if (numero.isNotEmpty()) resultado.add(numero.toString())
+
+    while (pila.isNotEmpty()) resultado.add(pila.pop().toString())
+    return resultado
+}
+
+fun evaluarPostfija(postfija: List<String>): Double {
+    val pila = Stack<Double>()
+    for (token in postfija) {
+        when {
+            token.toDoubleOrNull() != null -> pila.push(token.toDouble())
+
+            token in listOf("+", "-", "*", "/") -> {
+                val b = pila.pop()
+                val a = pila.pop()
+                val resultado = when (token) {
+                    "+" -> a + b
+                    "-" -> a - b
+                    "*" -> a * b
+                    "/" -> a / b
+                    else -> 0.0
+                }
+                pila.push(resultado)
+            }
+        }
+    }
+    return pila.pop()
+}
+
+fun evaluarExpresion(expresion: String): String {
+    return try {
+        val postfija = convertirAPostfija(expresion)
+        val resultado = evaluarPostfija(postfija)
+        resultado.toString()
+    } catch (e: Exception) {
+        "Error"
     }
 }
