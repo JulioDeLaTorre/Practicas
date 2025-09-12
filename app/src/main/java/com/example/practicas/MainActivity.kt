@@ -48,7 +48,7 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun MainScreen(){
-    var display by remember { mutableStateOf(TextFieldValue("")) }
+    var display by remember { mutableStateOf(("")) }
 
     Column(
         modifier = Modifier
@@ -90,10 +90,10 @@ fun MainScreen(){
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            Button(onClick = { }) { Text("7") }
-            Button(onClick = { }) { Text("8") }
-            Button(onClick = { }) { Text("9") }
-            Button(onClick = { }) { Text("*") }
+            Button(onClick = { display += "7" }) { Text("7") }
+            Button(onClick = { display += "8" }) { Text("8") }
+            Button(onClick = { display += "9" }) { Text("9") }
+            Button(onClick = { display += "*" }) { Text("*") }
         }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -102,10 +102,10 @@ fun MainScreen(){
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            Button(onClick = { }) { Text("4") }
-            Button(onClick = { }) { Text("5") }
-            Button(onClick = { }) { Text("6") }
-            Button(onClick = { }) { Text("-") }
+            Button(onClick = { display += "4" }) { Text("4") }
+            Button(onClick = { display += "5" }) { Text("5") }
+            Button(onClick = { display += "6" }) { Text("6") }
+            Button(onClick = { display += "-" }) { Text("-") }
         }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -114,10 +114,10 @@ fun MainScreen(){
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            Button(onClick = { }) { Text("1") }
-            Button(onClick = { }) { Text("2") }
-            Button(onClick = { }) { Text("3") }
-            Button(onClick = { }) { Text("+") }
+            Button(onClick = { display += "1"}) { Text("1") }
+            Button(onClick = { display += "2"}) { Text("2") }
+            Button(onClick = { display += "3"}) { Text("3") }
+            Button(onClick = { display += "+"}) { Text("+") }
         }
 
         Spacer(modifier = Modifier.height(16.dp))
@@ -126,10 +126,10 @@ fun MainScreen(){
             modifier = Modifier.fillMaxWidth(),
             horizontalArrangement = Arrangement.SpaceEvenly
         ) {
-            Button(onClick = { }) { Text("0") }
-            Button(onClick = { }) { Text(".") }
+            Button(onClick = { display += "0" }) { Text("0") }
+            Button(onClick = { display += "0" }) { Text(".") }
             Button(onClick = { /* = */ }) { Text("=")}
-            Button(onClick = { }) { Text("/") }
+            Button(onClick = { display += "/" }) { Text("/") }
         }
     }
 }
