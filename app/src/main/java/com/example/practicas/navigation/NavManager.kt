@@ -16,14 +16,12 @@ fun NavManager(){
 
     NavHost(navController = navController,
         startDestination = "Splash"){
+
         composable("Home"){
             HomeView(navController)
         }
-        composable("Detail/{id}",arguments =
-            listOf(navArgument("id")
-            {type= NavType.IntType })){
-            val id=it.arguments?.getInt("id")?:0
-            DetailsView(navController,id)
+        composable("Detail"){
+            DetailsView(navController)
         }
         composable("Splash"){
             SplashScreen(navController)
