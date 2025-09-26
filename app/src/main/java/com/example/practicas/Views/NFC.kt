@@ -46,9 +46,7 @@ fun NFC(navController: NavController){
                         navController.navigate("Home")
                     }
                 })
-        }, floatingActionButton = {
-            ActionButton()
-        }
+        },
     ){
         ContentNFC(navController)
     }

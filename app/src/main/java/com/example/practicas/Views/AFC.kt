@@ -1,6 +1,5 @@
 package com.example.segundodia.Views
 
-
 import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
@@ -25,7 +24,6 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.practicas.R
-import com.example.segundodia.components.ActionButton
 import com.example.segundodia.components.MainButton
 import com.example.segundodia.components.MainIconButton
 import com.example.segundodia.components.TitleBar
@@ -45,9 +43,7 @@ fun AFC(navController: NavController){
                         navController.navigate("Home")
                     }
                 })
-        }, floatingActionButton = {
-            ActionButton()
-        }
+        },
     ){
         ContentAFC(navController)
     }
@@ -85,7 +81,7 @@ fun ContentAFC(navController: NavController){
                     modifier = Modifier.size(80.dp)
                 )
 
-                MainButton("Steelers", Color(0xFFFFB612), Color.White) {
+                MainButton("Steelers", Color(0xFFFFB612), Color.Black) {
                     navController.navigate("SSteelers") }
             }
         }
