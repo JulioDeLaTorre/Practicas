@@ -55,7 +55,7 @@ fun ContentHomeView(navController: NavController){
         Row{
             Image(
                 painter = painterResource(id = R.drawable.afc),
-                contentDescription = "49rse estadio",
+                contentDescription = "logo afc",
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(100.dp)
@@ -76,7 +76,7 @@ fun ContentHomeView(navController: NavController){
         Row{
             Image(
                 painter = painterResource(id = R.drawable.nfc),
-                contentDescription = "49rse estadio",
+                contentDescription = "logo nfc",
                 modifier = Modifier
                     .fillMaxWidth()
                     .height(100.dp)
