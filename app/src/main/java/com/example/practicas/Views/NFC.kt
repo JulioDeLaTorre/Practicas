@@ -50,37 +50,36 @@ fun NFC(navController: NavController) {
 
 @Composable
 fun ContentNFC(navController: NavController, modifier: Modifier) {
-    // 1. Definición de la lista de equipos de la NFC con los nuevos datos
     val nfcTeams = listOf(
         Team(
             "Cowboys",
             "Dallas Cowboys",
-            R.drawable.cowboysc, // Asegúrate de que existe
-            Color(0xFF869397), // Plata
+            R.drawable.cowboysc,
+            Color(0xFF869397),
             Color.White,
             "SSCowboys"
         ),
         Team(
             "49ers",
             "San Francisco 49ers",
-            R.drawable.sf49ersc, // Asumo que este es el drawable correcto para 49ers
-            Color(0xFFAA0000), // Rojo
+            R.drawable.sf49ersc,
+            Color(0xFFB3995D),
             Color.White,
             "SSF49ers"
         ),
         Team(
-            "Packers", // Usé Packers como nombre corto para Green Bay
+            "Packers",
             "Green Bay Packers",
-            R.drawable.cascogreenbay, // Asegúrate de que existe
-            Color(0xFF203731), // Verde
+            R.drawable.cascogreenbay,
+            Color(0xFF203731),
             Color.White,
             "SSGreenBay"
         ),
         Team(
             "Eagles",
             "Philadelphia Eagles",
-            R.drawable.eaglescasco, // Asegúrate de que existe
-            Color(0xFF004C54), // Verde
+            R.drawable.eaglescasco,
+            Color(0xFF004C54),
             Color.White,
             "SSEagles"
         )

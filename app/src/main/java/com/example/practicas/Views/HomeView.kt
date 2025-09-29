@@ -11,7 +11,6 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
@@ -20,7 +19,6 @@ import androidx.compose.material3.TopAppBarDefaults
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -29,8 +27,6 @@ import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import com.example.practicas.R
 import com.example.segundodia.components.MainButton
-import com.example.segundodia.components.Space
-import com.example.segundodia.components.TextView
 import com.example.segundodia.components.TitleBar
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -50,21 +46,20 @@ fun HomeView(navController: NavController){
         ContentHomeView(navController)
     }
 }
+
 @Composable
 fun ContentHomeView(navController: NavController){
-    Column(modifier = Modifier
-        .fillMaxSize() // Fills the entire screen
-        .padding(horizontal = 8.dp),
+    Column(
+        modifier = Modifier
+            .fillMaxSize()
+            .padding(horizontal = 8.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.spacedBy(16.dp)){
-
-        // --- AFC Row ---
+        verticalArrangement = Arrangement.Center // 🔥 Centra ambos Row en el medio de la pantalla
+    ) {
         Row(
-            // Use weight(1f) to make this Row take up half the vertical space
             modifier = Modifier
                 .fillMaxWidth()
-                .weight(1f)
-                .padding(vertical = 8.dp, horizontal = 16.dp),
+                .padding(horizontal = 16.dp), // Solo mantenemos el padding horizontal
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
@@ -73,13 +68,11 @@ fun ContentHomeView(navController: NavController){
                 contentDescription = "afc",
                 modifier = Modifier
                     .size(150.dp)
-                    .weight(1f)
             )
 
             Spacer(modifier = Modifier.size(16.dp))
 
             Column(
-                modifier = Modifier.weight(1.5f),
                 horizontalAlignment = Alignment.Start,
                 verticalArrangement = Arrangement.Center
             ) {
@@ -101,14 +94,12 @@ fun ContentHomeView(navController: NavController){
                 }
             }
         }
+        Spacer(modifier = Modifier.height(32.dp))
 
-        // --- NFC Row ---
         Row(
-            // Use weight(1f) to make this Row take up the other half of the vertical space
             modifier = Modifier
                 .fillMaxWidth()
-                .weight(1f)
-                .padding(vertical = 8.dp, horizontal = 16.dp),
+                .padding(horizontal = 16.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
@@ -117,13 +108,11 @@ fun ContentHomeView(navController: NavController){
                 contentDescription = "nfc",
                 modifier = Modifier
                     .size(150.dp)
-                    .weight(1f)
             )
 
             Spacer(modifier = Modifier.size(16.dp))
 
             Column(
-                modifier = Modifier.weight(1.5f),
                 horizontalAlignment = Alignment.Start,
                 verticalArrangement = Arrangement.Center
             ) {
