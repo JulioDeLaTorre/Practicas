@@ -44,8 +44,7 @@ fun Patriots(navController: NavController){
                         navController.navigate("AFC")
                     }
                 })
-        }, floatingActionButton = {
-            ActionButton()
+
         }
     ){
         ContentPatriots()

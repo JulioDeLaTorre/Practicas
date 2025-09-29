@@ -35,13 +35,13 @@ fun Space(espcio:Int){
 
 @Composable
 fun MainButton(name:String, backColor:Color,
-               color: Color,onClick:()->Unit,
+               ColorC: Color,onClick:()->Unit,
                ){
     Button(modifier = Modifier.clip(RoundedCornerShape(16.dp))
                               .shadow(8.dp, RoundedCornerShape(16.dp)), //profe yo se que no vimos esto pero solo es una sombra
             onClick = onClick,
             colors = ButtonDefaults.buttonColors(
-            contentColor = color,
+            contentColor = ColorC,
             containerColor = backColor
         )) {
         Text(name)

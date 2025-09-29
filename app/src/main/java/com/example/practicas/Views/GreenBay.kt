@@ -44,8 +44,6 @@ fun GreenBay(navController: NavController){
                         navController.navigate("NFC")
                     }
                 })
-        }, floatingActionButton = {
-            ActionButton()
         }
     ){
         ContentGreenBay()

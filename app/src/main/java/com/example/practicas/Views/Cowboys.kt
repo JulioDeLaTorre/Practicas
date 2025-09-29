@@ -44,8 +44,6 @@ fun Cowboys(navController: NavController){
                         navController.navigate("NFC")
                     }
                 })
-        }, floatingActionButton = {
-            ActionButton()
         }
     ){
         ContentCowboys()

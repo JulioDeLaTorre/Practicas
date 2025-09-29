@@ -44,8 +44,7 @@ fun Dolphins(navController: NavController){
                         navController.navigate("AFC")
                     }
                 })
-        }, floatingActionButton = {
-            ActionButton()
+
         }
     ){
         ContentDolphins()

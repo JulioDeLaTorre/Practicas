@@ -44,8 +44,7 @@ fun Kansas(navController: NavController){
                         navController.navigate("AFC")
                     }
                 })
-        }, floatingActionButton = {
-            ActionButton()
+
         }
     ){
         ContentKansas()

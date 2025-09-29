@@ -44,8 +44,7 @@ fun SF49ers(navController: NavController){
                         navController.navigate("NFC")
                     }
                 })
-        }, floatingActionButton = {
-            ActionButton()
+
         }
     ){
         Content49ers()

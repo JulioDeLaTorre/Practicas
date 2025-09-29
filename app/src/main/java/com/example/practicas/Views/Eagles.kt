@@ -44,8 +44,7 @@ fun Eagles(navController: NavController){
                         navController.navigate("NFC")
                     }
                 })
-        }, floatingActionButton = {
-            ActionButton()
+
         }
     ){
         ContentEalges()
