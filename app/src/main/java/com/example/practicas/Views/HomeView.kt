@@ -11,6 +11,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Scaffold
@@ -52,16 +53,16 @@ fun ContentHomeView(navController: NavController){
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .padding(horizontal = 8.dp),
+            .padding(top = 170.dp),
         horizontalAlignment = Alignment.CenterHorizontally,
-        verticalArrangement = Arrangement.Center // 🔥 Centra ambos Row en el medio de la pantalla
+        verticalArrangement = Arrangement.spacedBy(64.dp)
     ) {
         Row(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp), // Solo mantenemos el padding horizontal
+                .wrapContentWidth()
+                .padding(horizontal = 24.dp),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
+            horizontalArrangement = Arrangement.spacedBy(24.dp)
         ) {
             Image(
                 painter = painterResource(R.drawable.afc),
@@ -69,8 +70,6 @@ fun ContentHomeView(navController: NavController){
                 modifier = Modifier
                     .size(150.dp)
             )
-
-            Spacer(modifier = Modifier.size(16.dp))
 
             Column(
                 horizontalAlignment = Alignment.Start,
@@ -83,7 +82,7 @@ fun ContentHomeView(navController: NavController){
                     color = Color.Red
                 )
 
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(12.dp)) // Bigger gap between text and button
 
                 MainButton(
                     name = "AFC",
@@ -94,14 +93,13 @@ fun ContentHomeView(navController: NavController){
                 }
             }
         }
-        Spacer(modifier = Modifier.height(32.dp))
 
         Row(
             modifier = Modifier
-                .fillMaxWidth()
-                .padding(horizontal = 16.dp),
+                .wrapContentWidth() // IMPORTANT: Allows content to center easily
+                .padding(horizontal = 24.dp),
             verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.SpaceBetween
+            horizontalArrangement = Arrangement.spacedBy(24.dp)
         ) {
             Image(
                 painter = painterResource(R.drawable.nfc),
@@ -109,8 +107,6 @@ fun ContentHomeView(navController: NavController){
                 modifier = Modifier
                     .size(150.dp)
             )
-
-            Spacer(modifier = Modifier.size(16.dp))
 
             Column(
                 horizontalAlignment = Alignment.Start,
@@ -123,7 +119,7 @@ fun ContentHomeView(navController: NavController){
                     color = Color.Blue
                 )
 
-                Spacer(modifier = Modifier.height(8.dp))
+                Spacer(modifier = Modifier.height(12.dp))
 
                 MainButton(
                     name = "NFC",
