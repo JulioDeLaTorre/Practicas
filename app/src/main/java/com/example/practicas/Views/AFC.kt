@@ -19,8 +19,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.practicas.R
-import com.example.practicas.components.Team
-import com.example.practicas.components.TeamRow
+import com.example.practicas.components.Team2
+import com.example.practicas.components.TeamRow2
 import com.example.segundodia.components.MainIconButton
 import com.example.segundodia.components.TitleBar
 
@@ -50,37 +50,41 @@ fun AFC(navController: NavController) {
 @Composable
 fun ContentAFC(navController: NavController, modifier: Modifier) {
     val afcTeams = listOf(
-        Team(
+        Team2(
             "Patriots",
             "New England Patriots",
+            cardBackgroundColor = Color(0xFFC6C6C6),
             R.drawable.patriotsc,
-            Color(0xFF002244),
-            Color.White,
-            "SSPatriots"
+            buttonColor = Color(0xFF002244),
+            buttonTextColor = Color.White,
+            route = "SSPatriots"
         ),
-        Team(
+        Team2(
             "Steelers",
             "Pittsburgh Steelers",
+            cardBackgroundColor = Color(0xFFFFB612),
             R.drawable.steleersc,
-            Color.Black,
-            Color.White,
-            "SSteelers"
+            buttonColor = Color.Black,
+            buttonTextColor = Color.White,
+            route = "SSteelers"
         ),
-        Team(
+        Team2(
             "Chiefs",
             "Kansas City Chiefs",
+            cardBackgroundColor = Color.White,
             R.drawable.kansasc,
-            Color(0xFFE31837),
-            Color.White,
-            "SSKansas"
+            buttonColor = Color(0xFFE31837),
+            buttonTextColor = Color.White,
+            route = "SSKansas"
         ),
-        Team(
+        Team2(
             "Dolphins",
             "Miami Dolphins",
+            cardBackgroundColor = Color(0xFFFFD1AA),
             R.drawable.dolphinsc,
-            Color(0xFF008E97),
-            Color.White,
-            "SSDolphins"
+            buttonColor = Color(0xFF008E97),
+            buttonTextColor = Color.White,
+            route = "SSDolphins"
         )
     )
 
@@ -93,7 +97,7 @@ fun ContentAFC(navController: NavController, modifier: Modifier) {
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
         items(afcTeams) { team ->
-            TeamRow(team = team, navController = navController)
+            TeamRow2(team = team, navController = navController)
         }
     }
 }

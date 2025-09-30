@@ -29,6 +29,14 @@ fun TextView(texto: String,tamaño: Int){
 }
 
 @Composable
+fun TextView(texto: String,tamaño: Int, color: Color){
+    Text(modifier = Modifier.padding(20.dp),
+        text = texto,
+        fontSize = tamaño.sp,
+        fontWeight = FontWeight.Bold,
+        color = color)
+}
+@Composable
 fun Space(espcio:Int){
     Spacer(modifier = Modifier.height(espcio.dp))
 }

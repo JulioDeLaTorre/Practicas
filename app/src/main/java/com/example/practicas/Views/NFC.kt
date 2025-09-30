@@ -19,8 +19,8 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 import com.example.practicas.R
-import com.example.practicas.components.Team
-import com.example.practicas.components.TeamRow
+import com.example.practicas.components.Team2
+import com.example.practicas.components.TeamRow2
 import com.example.segundodia.components.MainIconButton
 import com.example.segundodia.components.TitleBar
 
@@ -43,45 +43,48 @@ fun NFC(navController: NavController) {
             )
         },
     ) { paddingValues ->
-        // Pasar el padding a ContentNFC
         ContentNFC(navController, Modifier.padding(paddingValues))
     }
 }
 
 @Composable
 fun ContentNFC(navController: NavController, modifier: Modifier) {
-    val nfcTeams = listOf(
-        Team(
+    val nfcTeams2 = listOf(
+        Team2(
             "Cowboys",
             "Dallas Cowboys",
+            cardBackgroundColor = Color(0xFFC6C6C6),
             R.drawable.cowboysc,
-            Color(0xFF869397),
-            Color.White,
-            "SSCowboys"
+            buttonColor = Color(0xFF041E42),
+            buttonTextColor = Color.White,
+            route = "SSCowboys"
         ),
-        Team(
+        Team2(
             "49ers",
             "San Francisco 49ers",
+            cardBackgroundColor = Color(0xFFB3995D),
             R.drawable.sf49ersc,
-            Color(0xFFB3995D),
-            Color.White,
-            "SSF49ers"
+            buttonColor = Color(0xFFAA0000),
+            buttonTextColor = Color.White,
+            route = "SSF49ers"
         ),
-        Team(
+        Team2(
             "Packers",
             "Green Bay Packers",
+            cardBackgroundColor = Color(0xFFFFB612),
             R.drawable.cascogreenbay,
-            Color(0xFF203731),
-            Color.White,
-            "SSGreenBay"
+            buttonColor = Color(0xFF203731),
+            buttonTextColor = Color.White,
+            route = "SSGreenBay"
         ),
-        Team(
+        Team2(
             "Eagles",
             "Philadelphia Eagles",
+            cardBackgroundColor = Color(0xFFA5ACAF),
             R.drawable.eaglescasco,
-            Color(0xFF004C54),
-            Color.White,
-            "SSEagles"
+            buttonColor = Color(0xFF004C54),
+            buttonTextColor = Color.White,
+            route = "SSEagles"
         )
     )
 
@@ -93,8 +96,8 @@ fun ContentNFC(navController: NavController, modifier: Modifier) {
         contentPadding = androidx.compose.foundation.layout.PaddingValues(vertical = 8.dp),
         verticalArrangement = Arrangement.spacedBy(16.dp)
     ) {
-        items(nfcTeams) { team ->
-            TeamRow(team = team, navController = navController)
+        items(nfcTeams2) { team ->
+            TeamRow2(team = team, navController = navController)
         }
     }
 }
