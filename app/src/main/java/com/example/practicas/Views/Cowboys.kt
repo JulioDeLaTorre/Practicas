@@ -41,12 +41,15 @@ fun Cowboys(navController: NavController){
                 .fillMaxSize()
                 .padding(innerPadding)
         ) {
-            TeamInfo(
-                R.drawable.cowboyse, "Fundación: 1960 | Ciudad: Arlington, TX\n" +
-                        "Super Bowls Ganados: 5 (1971, 1977, 1992, 1993, 1995)\n" +
-                        "Jugadores icónicos: Roger Staubach, Emmitt Smith, Troy Aikman\n" +
-                        "Curiosidad: Conocidos como “America’s Team”", Color(0xFF869397),Color.White
-            )
+                        TeamInfo(
+                            R.drawable.cowboyse,
+                            "Fundación: 1960 | Ciudad: Arlington, TX\n" +
+                                    "Super Bowls Ganados: 5 (1971, 1977, 1992, 1993, 1995)\n" +
+                                    "Jugadores icónicos: Roger Staubach, Emmitt Smith, Troy Aikman\n" +
+                                    "Curiosidad: Conocidos como “America’s Team”",
+                            Color(0xFF869397),
+                            Color.White
+                        )
         }
     }
 }

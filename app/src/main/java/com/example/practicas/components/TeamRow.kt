@@ -154,26 +154,3 @@ fun TeamInfo(
         }
     }
 }
-
-@Composable
-fun LottieCard(animationRes: Int) {
-    Card(
-        modifier = Modifier
-            .padding(16.dp)
-            .fillMaxWidth(),
-        shape = RoundedCornerShape(16.dp),
-        elevation = CardDefaults.cardElevation(defaultElevation = 8.dp)
-    ) {
-        val composition by rememberLottieComposition(
-            LottieCompositionSpec.RawRes(animationRes)
-        )
-
-        LottieAnimation(
-            composition = composition,
-            iterations = LottieConstants.IterateForever,
-            modifier = Modifier
-                .padding(16.dp)
-                .size(200.dp)
-        )
-    }
-}

@@ -4,14 +4,6 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.example.practica4.Views.SSCoyboys
-import com.example.practica4.Views.SSDolphins
-import com.example.practica4.Views.SSEagles
-import com.example.practica4.Views.SSF49ers
-import com.example.practica4.Views.SSGreenBay
-import com.example.practica4.Views.SSKansas
-import com.example.practica4.Views.SSPatriots
-import com.example.practica4.Views.SSteelers
 import com.example.segundodia.Views.HomeView
 import com.example.practica4.Views.SplashScreen
 import com.example.practicas.R
