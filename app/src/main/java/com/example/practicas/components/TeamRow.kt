@@ -2,8 +2,10 @@ package com.example.practicas.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -24,7 +26,7 @@ fun TeamRow2(team: Team2, navController: NavController) {
             .fillMaxWidth()
             .padding(vertical = 4.dp, horizontal = 16.dp),
         elevation = CardDefaults.cardElevation(defaultElevation = 4.dp),
-
+        shape = RoundedCornerShape(16.dp),
         colors = CardDefaults.cardColors(
             containerColor = team.cardBackgroundColor
         ),
@@ -33,7 +35,7 @@ fun TeamRow2(team: Team2, navController: NavController) {
         Row(
             modifier = Modifier
                 .fillMaxWidth()
-                .padding(all = 8.dp),
+                .padding(16.dp),
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
@@ -41,7 +43,7 @@ fun TeamRow2(team: Team2, navController: NavController) {
                 painter = painterResource(id = team.logoResId),
                 contentDescription = "Casco ${team.name}",
                 modifier = Modifier
-                    .size(150.dp)
+                    .size(width = 120.dp, height = 100.dp)
                     .weight(1f)
             )
 
@@ -54,13 +56,11 @@ fun TeamRow2(team: Team2, navController: NavController) {
             ) {
                 Text(
                     text = team.name,
-                    fontSize = 24.sp,
+                    style = MaterialTheme.typography.headlineSmall,
                     fontWeight = FontWeight.Bold,
                     color = team.buttonColor
                 )
-
                 Spacer(modifier = Modifier.height(8.dp))
-
                 MainButton(
                     name = team.Fullname,
                     team.buttonColor,

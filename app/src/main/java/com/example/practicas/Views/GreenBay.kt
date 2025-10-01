@@ -28,7 +28,7 @@ fun GreenBay(navController: NavController){
             CenterAlignedTopAppBar(
                 title = { TitleBar("Green Bay") },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = Color(0xFF203731)
+                    containerColor = Color(0xFFFFB612)
                 ),navigationIcon= {
                     MainIconButton(icon = Icons.Default.ArrowBack) {
                         navController.navigate("NFC")
@@ -48,7 +48,7 @@ fun GreenBay(navController: NavController){
                         "Campeonatos de liga pre-Super Bowl: 9\n" +
                         "Jugadores icónicos: Brett Favre, Aaron Rodgers\n" +
                         "Curiosidad: Únicos propiedad de los aficionados (accionistas)",
-                Color(0xFF203731),Color.White
+                Color(0xFFFFB612),Color.White
             )
         }
     }

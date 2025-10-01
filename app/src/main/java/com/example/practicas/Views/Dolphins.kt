@@ -28,7 +28,7 @@ fun Dolphins(navController: NavController){
             CenterAlignedTopAppBar(
                 title = { TitleBar("Dolphins") },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = Color(0xFF008E97)
+                    containerColor = Color(0xFFFFD1AA)
                 ),navigationIcon= {
                     MainIconButton(icon = Icons.Default.ArrowBack) {
                         navController.navigate("AFC")
@@ -48,7 +48,7 @@ fun Dolphins(navController: NavController){
                         "Temporada perfecta: 1972 (17-0)\n" +
                         "Jugadores icónicos: Dan Marino\n" +
                         "Curiosidad: Únicos con temporada perfecta ganando el Super Bowl",
-                Color(0xFF008E97)
+                Color(0xFFFFD1AA)
             )
         }
     }

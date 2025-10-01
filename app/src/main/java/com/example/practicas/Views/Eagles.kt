@@ -28,7 +28,7 @@ fun Eagles(navController: NavController){
             CenterAlignedTopAppBar(
                 title = { TitleBar("Eagles") },
                 colors = TopAppBarDefaults.centerAlignedTopAppBarColors(
-                    containerColor = Color(0xFF004C54)
+                    containerColor = Color(0xFFA5ACAF)
                 ),navigationIcon= {
                     MainIconButton(icon = Icons.Default.ArrowBack) {
                         navController.navigate("NFC")
@@ -48,7 +48,7 @@ fun Eagles(navController: NavController){
                         "Super Bowls Ganados: 1 (2017)\n" +
                         "Jugadores icónicos: Donovan McNabb, Carson Wentz\n" +
                         "Curiosidad: Famoso “Philly Special” en el Super Bowl LII",
-                Color(0xFF004C54),Color.White
+                Color(0xFFA5ACAF),Color.White
             )
         }
     }

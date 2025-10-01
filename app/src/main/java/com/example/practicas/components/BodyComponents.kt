@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.ModalBottomSheet
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -52,6 +53,7 @@ fun MainButton(name:String, backColor:Color,
             contentColor = ColorC,
             containerColor = backColor
         )) {
-        Text(name)
+        Text(name,
+            style = MaterialTheme.typography.labelLarge)
     }
 }

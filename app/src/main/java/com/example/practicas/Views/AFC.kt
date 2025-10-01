@@ -53,9 +53,9 @@ fun ContentAFC(navController: NavController, modifier: Modifier) {
         Team2(
             "Patriots",
             "New England Patriots",
-            cardBackgroundColor = Color(0xFFC6C6C6),
+            cardBackgroundColor = Color(0xFF002244),
             R.drawable.patriotsc,
-            buttonColor = Color(0xFF002244),
+            buttonColor = Color(0xFFC6C6C6),
             buttonTextColor = Color.White,
             route = "SSPatriots"
         ),
