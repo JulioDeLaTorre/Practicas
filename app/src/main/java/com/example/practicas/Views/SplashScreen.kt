@@ -9,15 +9,14 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
 import androidx.navigation.NavController
-import com.example.practicas.R
 import kotlinx.coroutines.delay
 
 @Composable
-fun SplashScreen(navController: NavController) {
+fun SplashScreen(navController: NavController,route:String,popup:String,idres:Int,des:String) {
     LaunchedEffect(key1 = true) {
         delay(2000)
-            navController.navigate("Home") {
-            popUpTo("Home") {
+            navController.navigate(route) {
+            popUpTo(popup) {
             }
         }
     }
@@ -26,8 +25,8 @@ fun SplashScreen(navController: NavController) {
         modifier = Modifier.fillMaxSize()
     ) {
         Image(
-            painter = painterResource(id = R.drawable.nfl_logo),
-            contentDescription = "Logo"
+            painter = painterResource(idres),
+            contentDescription = des
         )
     }
 }

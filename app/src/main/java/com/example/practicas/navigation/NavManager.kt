@@ -14,6 +14,7 @@ import com.example.practica4.Views.SSPatriots
 import com.example.practica4.Views.SSteelers
 import com.example.segundodia.Views.HomeView
 import com.example.practica4.Views.SplashScreen
+import com.example.practicas.R
 import com.example.practicas.Views.Cowboys
 import com.example.practicas.Views.Dolphins
 import com.example.practicas.Views.Eagles
@@ -37,7 +38,7 @@ fun NavManager(){
         }
 
         composable("Splash"){
-            SplashScreen(navController)
+            SplashScreen(navController,"Home","Home", R.drawable.nfl_logo,"logo nfl")
         }
 
         composable("AFC"){
@@ -52,56 +53,56 @@ fun NavManager(){
             Patriots(navController)
         }
         composable("SSPatriots") {
-            SSPatriots(navController)
+            SplashScreen(navController,"patriots","AFC",R.drawable.patriotsl,"Logo patriots")
         }
 
         composable("steelers") {
             Steelers(navController)
         }
         composable("SSteelers") {
-            SSteelers(navController)
+            SplashScreen(navController,"steelers","AFC",R.drawable.steelersl,"logo steelers")
         }
 
         composable("kansas") {
             Kansas(navController)
         }
         composable("SSKansas") {
-            SSKansas(navController)
+            SplashScreen(navController,"kansas","AFC",R.drawable.kansasl,"logo chiefs")
         }
 
         composable("dolphins") {
             Dolphins(navController)
         }
         composable("SSDolphins") {
-            SSDolphins(navController)
+            SplashScreen(navController,"dolphins","AFC",R.drawable.dolphinsl,"logo dolhpins")
         }
 
         composable("cowboys") {
             Cowboys(navController)
         }
         composable("SSCowboys") {
-            SSCoyboys(navController)
+            SplashScreen(navController,"cowboys","NFC",R.drawable.dallasl,"logo cowboys")
         }
 
         composable("49ers") {
             SF49ers(navController)
         }
         composable("SSF49ers") {
-            SSF49ers(navController)
+            SplashScreen(navController,"49ers","NFC",R.drawable.sf49ersl,"logo 49ers")
         }
 
         composable("green bay") {
             GreenBay(navController)
         }
         composable("SSGreenBay") {
-            SSGreenBay(navController)
+            SplashScreen(navController,"green bay","NFC",R.drawable.greenbayl,"logo greenbay")
         }
 
         composable("eagles") {
             Eagles(navController)
         }
         composable("SSEagles") {
-            SSEagles(navController)
+            SplashScreen(navController,"eagles","NFC",R.drawable.eaglesl,"logo eagles")
         }
     }
 }
