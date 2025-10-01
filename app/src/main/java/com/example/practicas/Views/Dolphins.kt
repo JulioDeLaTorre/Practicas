@@ -48,7 +48,7 @@ fun Dolphins(navController: NavController){
                         "Temporada perfecta: 1972 (17-0)\n" +
                         "Jugadores icónicos: Dan Marino\n" +
                         "Curiosidad: Únicos con temporada perfecta ganando el Super Bowl",
-                Color(0xFFFFD1AA)
+                Color(0xFFFFD1AA),Color.White
             )
         }
     }
