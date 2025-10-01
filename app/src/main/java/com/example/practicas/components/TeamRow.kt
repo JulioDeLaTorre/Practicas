@@ -173,7 +173,7 @@ fun LottieCard(animationRes: Int) {
             iterations = LottieConstants.IterateForever,
             modifier = Modifier
                 .padding(16.dp)
-                .size(200.dp) // tamaño de la animación
+                .size(200.dp)
         )
     }
 }
