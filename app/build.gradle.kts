@@ -43,7 +43,7 @@ dependencies {
     val nav_version = "2.9.4"
     implementation("androidx.navigation:navigation-compose:$nav_version")
 
-    implementation("com.airbnb.android:lottie-compose:5.2.0")
+    implementation("com.airbnb.android:lottie-compose:6.4.1")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
