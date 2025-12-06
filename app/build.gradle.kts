@@ -40,6 +40,22 @@ android {
 }
 
 dependencies {
+    // Jetpack Compose & Material 3
+    implementation("androidx.compose.material3:material3:1.3.0")
+
+    // Navigation Compose
+    implementation("androidx.navigation:navigation-compose:2.9.4")
+
+    // Serialización (Para pasar objetos entre pantallas y parsear JSON)
+    implementation("org.jetbrains.kotlinx:kotlinx-serialization-json:1.7.1")
+
+    // Retrofit (Red)
+    implementation("com.squareup.retrofit2:retrofit:2.11.0")
+    implementation("com.jakewharton.retrofit:retrofit2-kotlinx-serialization-converter:1.0.0")
+    implementation("com.squareup.okhttp3:okhttp:4.12.0")
+
+    // Coil (Carga de imágenes asíncrona)
+    implementation("io.coil-kt:coil-compose:2.7.0")
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
