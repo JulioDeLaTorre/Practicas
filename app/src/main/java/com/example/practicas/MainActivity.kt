@@ -19,7 +19,7 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             PracticasTheme {
-                //Este sera el proyecto base para las practicas api en progreso
+                //Este sera el proyecto base para las practicas api
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     Greeting(
                         name = "Android",
