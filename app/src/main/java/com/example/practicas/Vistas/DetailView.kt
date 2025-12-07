@@ -47,8 +47,15 @@ fun DetailView(
     // --- CORRECCIÓN DE NIEBLINA ---
     // Tomamos los colores de la API y forzamos Alpha = 1f (Opacidad total)
     // Esto evita que el último color (que suele ser transparente en la API) se vea blanco.
+    // Lógica Anti-Blanco y Anti-Transparencia
     val gradientColors = if (agent.backgroundGradientColors.isNotEmpty()) {
-        agent.backgroundGradientColors.map { it.toColor().copy(alpha = 1f) }
+        agent.backgroundGradientColors.map { hex ->
+            // 1. Convertimos y forzamos opacidad total (tu fix anterior)
+            val color = hex.toColor().copy(alpha = 1f)
+
+            // 2. FILTRO NUEVO: Si el color es Blanco Puro, lo cambiamos al oscuro de Valorant
+            if (color == Color.White) Color(0xFF0F1923) else color
+        }
     } else {
         listOf(Color(0xFF0F1923), Color(0xFF0F1923))
     }
