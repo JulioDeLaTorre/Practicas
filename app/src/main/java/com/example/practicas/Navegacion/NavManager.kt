@@ -6,17 +6,24 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
+import com.example.practicas.Vistas.CocktailDetailView
 import com.example.practicas.Vistas.DetailView
-import com.example.practicas.Vistas.HomeView
+import com.example.practicas.Vistas.LicoreriaHome
+import com.example.practicas.Vistas.MainHub
+import com.example.practicas.Vistas.ValorantHome
 
 @Composable
 fun NavManager() {
     val navController = rememberNavController()
 
-    NavHost(navController = navController, startDestination = "Home") {
+    NavHost(navController = navController, startDestination = "Hub") {
+        composable("Hub") {
+            MainHub(navController)
+        }
+
         // 1. Pantalla Principal (Lista de Agentes)
-        composable("Home") {
-            HomeView(navController)
+        composable("ValorantHome") {
+            ValorantHome(navController)
         }
 
         // 2. Pantalla de Detalle (Dinámica)
@@ -33,6 +40,15 @@ fun NavManager() {
             // Se lo pasamos a la vista de detalle
             DetailView(navController, id,
                 onBack = { navController.popBackStack() })
+        }
+
+        composable("LicoreriaHome") {
+            LicoreriaHome(navController)
+        }
+
+        composable("CocktailDetail/{id}") { backStackEntry ->
+            val id = backStackEntry.arguments?.getString("id") ?: ""
+            CocktailDetailView(navController, drinkId = id)
         }
     }
 }

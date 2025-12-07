@@ -10,7 +10,7 @@ android {
     compileSdk = 36
 
     defaultConfig {
-        applicationId = "com.example.practicas"
+        applicationId = "com.example.practicas.Practica6Api"
         minSdk = 24
         targetSdk = 36
         versionCode = 1

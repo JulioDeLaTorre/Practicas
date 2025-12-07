@@ -8,6 +8,8 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material3.*
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
@@ -24,9 +26,9 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import coil.compose.AsyncImage
-import com.example.practicas.Modelos.HomeViewModel
 import com.example.practicas.Componentes.toColor
-
+import com.example.practicas.Modelos.FavoritesManager
+import com.example.practicas.Modelos.HomeViewModel
 @Composable
 fun DetailView(
     navController: NavController,
@@ -44,16 +46,13 @@ fun DetailView(
         return
     }
 
-    // --- CORRECCIÓN DE NIEBLINA ---
-    // Tomamos los colores de la API y forzamos Alpha = 1f (Opacidad total)
-    // Esto evita que el último color (que suele ser transparente en la API) se vea blanco.
-    // Lógica Anti-Blanco y Anti-Transparencia
+    // --- PREPARACIÓN DE COLORES ---
+    // 1. Convertimos a color.
+    // 2. Forzamos alpha = 1f para evitar niebla blanca.
+    // 3. Si es blanco puro (FFFFFFFF), lo cambiamos a oscuro para que no queme los ojos.
     val gradientColors = if (agent.backgroundGradientColors.isNotEmpty()) {
         agent.backgroundGradientColors.map { hex ->
-            // 1. Convertimos y forzamos opacidad total (tu fix anterior)
             val color = hex.toColor().copy(alpha = 1f)
-
-            // 2. FILTRO NUEVO: Si el color es Blanco Puro, lo cambiamos al oscuro de Valorant
             if (color == Color.White) Color(0xFF0F1923) else color
         }
     } else {
@@ -61,6 +60,10 @@ fun DetailView(
     }
 
     val backgroundBrush = Brush.verticalGradient(colors = gradientColors)
+
+    // Verificamos si es favorito actualmente
+    // Nota: Como FavoritesManager usa mutableStateListOf, esto recompondrá la UI al cambiar.
+    val isFav = FavoritesManager.isAgentFavorite(agent.uuid)
 
     Scaffold(
         containerColor = Color.Transparent
@@ -72,6 +75,7 @@ fun DetailView(
                 .background(backgroundBrush) // Fondo Sólido de la API
         ) {
 
+            // --- CONTENIDO SCROLLABLE ---
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -79,13 +83,13 @@ fun DetailView(
                     .padding(bottom = 32.dp)
             ) {
 
-                // --- HEADER ---
+                // 1. HEADER (Imágenes)
                 Box(
                     modifier = Modifier
                         .fillMaxWidth()
                         .height(400.dp)
                 ) {
-                    // Imagen de fondo (Pattern)
+                    // Patrón de fondo
                     AsyncImage(
                         model = agent.background,
                         contentDescription = null,
@@ -107,7 +111,7 @@ fun DetailView(
                     )
                 }
 
-                // --- INFO ---
+                // 2. INFO DEL AGENTE
                 Column(
                     modifier = Modifier
                         .padding(horizontal = 24.dp)
@@ -167,7 +171,7 @@ fun DetailView(
                     )
                     Spacer(modifier = Modifier.height(16.dp))
 
-                    // --- LISTA DE HABILIDADES ---
+                    // 3. LISTA DE HABILIDADES
                     agent.abilities.forEach { ability ->
                         Row(
                             modifier = Modifier
@@ -208,18 +212,37 @@ fun DetailView(
                 }
             }
 
-            // --- BOTÓN BACK ---
-            IconButton(
-                onClick = onBack,
+            // --- BOTONES FLOTANTES SUPERIORES (Atrás y Favorito) ---
+            Row(
                 modifier = Modifier
-                    .padding(top = paddingValues.calculateTopPadding() + 8.dp, start = 16.dp)
-                    .background(Color.Black.copy(alpha = 0.4f), CircleShape)
+                    .fillMaxWidth()
+                    .padding(top = paddingValues.calculateTopPadding() + 16.dp, start = 16.dp, end = 16.dp),
+                horizontalArrangement = Arrangement.SpaceBetween,
+                verticalAlignment = Alignment.CenterVertically
             ) {
-                Icon(
-                    imageVector = Icons.AutoMirrored.Filled.ArrowBack,
-                    contentDescription = "Atrás",
-                    tint = Color.White
-                )
+                // Botón Atrás
+                IconButton(
+                    onClick = onBack,
+                    modifier = Modifier.background(Color.Black.copy(alpha = 0.4f), CircleShape)
+                ) {
+                    Icon(
+                        imageVector = Icons.AutoMirrored.Filled.ArrowBack,
+                        contentDescription = "Atrás",
+                        tint = Color.White
+                    )
+                }
+
+                // Botón Favorito (Toggle)
+                IconButton(
+                    onClick = { FavoritesManager.toggleAgentFavorite(agent.uuid) },
+                    modifier = Modifier.background(Color.Black.copy(alpha = 0.4f), CircleShape)
+                ) {
+                    Icon(
+                        imageVector = if (isFav) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+                        contentDescription = "Favorito",
+                        tint = if (isFav) Color.Red else Color.White // Rojo si es fav
+                    )
+                }
             }
         }
     }

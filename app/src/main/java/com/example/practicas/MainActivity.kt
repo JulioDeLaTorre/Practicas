@@ -9,6 +9,7 @@ import com.example.practicas.Navegacion.NavManager
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        com.example.practicas.Modelos.FavoritesManager.init(this)
         setContent {
             MaterialTheme {
                 NavManager()
