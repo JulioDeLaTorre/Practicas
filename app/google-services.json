@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "341821267790",
+    "project_id": "notes-903c3",
+    "storage_bucket": "notes-903c3.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:341821267790:android:3ebc0350bd0f7a023e081f",
+        "android_client_info": {
+          "package_name": "com.example.practicas"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyA3_JsHlUEa8Awa0qqzDxIOafaKAeaSw6U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
